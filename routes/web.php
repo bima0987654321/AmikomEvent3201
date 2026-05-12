@@ -11,6 +11,11 @@ use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\CategoryController;
 
+//Partner
+use App\Http\Controllers\Controller;
+use App\Models\Partner;
+use App\Http\Controllers\Admin\PartnerController;
+
 
 // ================= USER AREA =================
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -48,5 +53,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions');
     
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+
+    Route::get('/partners', [PartnerController::class, 'index']);
+
+    Route::get('/partners/create', [PartnerController::class, 'create']);
+
+    Route::post('/partners/store', [PartnerController::class, 'store']);
+
+    Route::get('/partners/edit/{id}', [PartnerController::class, 'edit']);
+
+    Route::post('/partners/update/{id}', [PartnerController::class, 'update']);
+
+    Route::get('/partners/delete/{id}', [PartnerController::class, 'delete']);
 
 });

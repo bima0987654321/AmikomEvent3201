@@ -22,17 +22,21 @@
 
     <!-- Sidebar -->
     <aside class="w-64 bg-indigo-900 text-indigo-100 flex flex-col p-6 space-y-8 sticky top-0 h-screen">
-        
+
         <!-- Logo -->
         <div class="flex items-center gap-3">
             <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-indigo-900 font-bold text-xl">
                 AH
             </div>
-            <span class="text-xl font-bold text-white tracking-tight">AmikomEventHub</span>
+
+            <span class="text-xl font-bold text-white tracking-tight">
+                AmikomEventHub
+            </span>
         </div>
 
         <!-- Menu -->
         <nav class="flex-1 space-y-2">
+
             <p class="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-4 px-2">
                 Main Menu
             </p>
@@ -41,36 +45,59 @@
             <a href="{{ route('admin.dashboard') }}"
                class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold
                {{ request()->routeIs('admin.dashboard') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
+
                 Dashboard
+
             </a>
 
             <!-- Event -->
             <a href="{{ route('admin.events') }}"
                class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold
                {{ request()->routeIs('admin.events') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
+
                 Kelola Event
+
             </a>
 
-            <!-- 🔥 Categories -->
+            <!-- Categories -->
             <a href="{{ route('admin.categories') }}"
                class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold
                {{ request()->routeIs('admin.categories') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
+
                 Kategori
+
+            </a>
+
+            <!-- Partner -->
+            <a href="/admin/partners"
+               class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold
+               {{ request()->is('admin/partners*') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
+
+                Partner
+
             </a>
 
             <!-- Transactions -->
             <a href="{{ route('admin.transactions') }}"
                class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold
                {{ request()->routeIs('admin.transactions') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
+
                 Laporan Transaksi
+
             </a>
+
         </nav>
 
         <!-- Logout -->
         <div class="pt-6 border-t border-indigo-800">
-            <a href="/" class="flex items-center gap-3 px-4 py-3 text-indigo-300 hover:text-white font-medium">
+
+            <a href="/"
+               class="flex items-center gap-3 px-4 py-3 text-indigo-300 hover:text-white font-medium">
+
                 Keluar
+
             </a>
+
         </div>
 
     </aside>
@@ -80,22 +107,42 @@
 
         <!-- Header -->
         <header class="flex justify-between items-center mb-10">
+
             <div>
-                <h1 class="text-3xl font-black">@yield('title')</h1>
-                <p class="text-slate-500 font-medium">Selamat datang kembali, Admin!</p>
+
+                <h1 class="text-3xl font-black">
+                    @yield('title')
+                </h1>
+
+                <p class="text-slate-500 font-medium">
+                    Selamat datang kembali, Admin!
+                </p>
+
             </div>
 
             <div class="flex items-center gap-4">
+
                 <div class="text-right hidden md:block">
-                    <p class="font-bold">Admin Super</p>
-                    <p class="text-xs text-slate-400">Penyelenggara Utama</p>
+
+                    <p class="font-bold">
+                        Admin Super
+                    </p>
+
+                    <p class="text-xs text-slate-400">
+                        Penyelenggara Utama
+                    </p>
+
                 </div>
 
                 <div class="w-12 h-12 bg-white rounded-2xl shadow-sm border flex items-center justify-center p-1">
+
                     <img src="https://ui-avatars.com/api/?name=Admin+Super&background=6366f1&color=fff"
                          class="rounded-xl">
+
                 </div>
+
             </div>
+
         </header>
 
         <!-- Content -->
