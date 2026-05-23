@@ -8,6 +8,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         body {
@@ -17,6 +18,20 @@
         .glass {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
+        }
+
+        @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
         }
     </style>
 </head>
@@ -51,10 +66,26 @@
                     </div>
                     <span class="text-2xl font-bold text-white">AmikomEventHub</span>
                 </div>
-                <p class="max-w-xs text-indigo-300">
-                    Platform reservasi tiket event online terbaik.
-                </p>
+                <p class="max-w-xs text-indigo-300">Platform reservasi tiket event online terbaik untuk mahasiswa dan penyelenggara profesional.</p>
             </div>
+            <div>
+                <h4 class="text-white font-bold mb-6">Navigasi</h4>
+                <ul class="space-y-4">
+                    <li><a href="#" class="hover:text-white transition">Home</a></li>
+                    <li><a href="#" class="hover:text-white transition">Semua Event</a></li>
+                    <li><a href="#" class="hover:text-white transition">Cara Bayar</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6">Hubungi Kami</h4>
+                <ul class="space-y-4">
+                    <li>support@eventtiket.com</li>
+                    <li>+62 812 3456 7890</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-12 mt-12 border-t border-indigo-800 text-center text-indigo-400 text-sm">
+            &copy; 2024 AmikomEventHub. Built with Laravel & Tailwind CSS.
         </div>
     </footer>
 

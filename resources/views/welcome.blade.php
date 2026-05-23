@@ -110,4 +110,55 @@
             @endforeach
         </div>
     </section>
+
+    <!-- Partners Section -->
+    @if($partners->count() > 0)
+        <section class="max-w-7xl mx-auto px-6 py-24">
+            <div class="text-center mb-20">
+                <span class="inline-block px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-indigo-200">
+                    ✨ Dipercaya Oleh Puluhan Brand Terkemuka
+                </span>
+                <h2 class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    Partner Kami
+                </h2>
+                <p class="text-slate-600 font-medium max-w-2xl mx-auto text-lg">
+                    Bekerja sama dengan brand-brand terkemuka dan inovatif untuk memberikan pengalaman event terbaik
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                @foreach($partners as $partner)
+                    <div class="group relative">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-3xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        
+                        <div class="relative bg-white rounded-3xl border-2 border-indigo-100 shadow-lg hover:shadow-2xl transition-all duration-300 p-8 h-full flex items-center justify-center overflow-hidden group-hover:border-indigo-300">
+                            <!-- Background decoration -->
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-indigo-50 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            <div class="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-50 to-transparent rounded-tr-3xl opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                            
+                            <!-- Logo Container -->
+                            <div class="relative z-10 transform group-hover:scale-110 transition-transform duration-300">
+                                <img src="{{ $partner->logo_url }}" 
+                                    alt="{{ $partner->name }}" 
+                                    class="h-20 w-28 object-contain filter brightness-95 group-hover:brightness-100 transition duration-300"
+                                    title="{{ $partner->name }}">
+                            </div>
+                            
+                            <!-- Hover text -->
+                            <div class="absolute inset-0 flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <span class="text-xs font-bold text-indigo-700 bg-white/90 px-3 py-1 rounded-full">{{ $partner->name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- Footer decoration -->
+            <div class="mt-16 text-center">
+                <p class="text-sm text-slate-500 font-medium">
+                    Bergabunglah dengan ribuan pengguna yang mempercayai platform kami
+                </p>
+            </div>
+        </section>
+    @endif
 @endsection
