@@ -26,6 +26,7 @@
 
             <thead>
                 <tr class="bg-gray-50 border-b border-gray-200">
+                    <th class="p-4 font-semibold text-gray-600">Poster</th>
                     <th class="p-4 font-semibold text-gray-600">Judul Event</th>
                     <th class="p-4 font-semibold text-gray-600">Kategori</th>
                     <th class="p-4 font-semibold text-gray-600">Tanggal</th>
@@ -36,6 +37,12 @@
             <tbody>
                 @foreach($events as $event)
                 <tr class="border-b border-gray-100 hover:bg-gray-50">
+
+                    <td class="p-4">
+                        <img src="{{ ($event->poster_path && \Illuminate\Support\Facades\Storage::disk('public')->exists($event->poster_path))
+                            ? asset('storage/' . $event->poster_path)
+                            : 'https://placehold.co/160x200' }}" alt="{{ $event->title }}" class="w-16 h-20 rounded-xl object-cover shadow-sm">
+                    </td>
 
                     <td class="p-4 text-gray-800">
                         {{ $event->title }}

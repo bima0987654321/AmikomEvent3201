@@ -21,9 +21,9 @@ use App\Http\Controllers\Admin\PartnerController;
 // ================= USER AREA =================
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/event/{id}', [EventController::class, 'show'])->name('events.show');
+Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
 
-Route::get('/checkout', [EventController::class, 'checkout'])->name('checkout');
+Route::get('/checkout/{event}', [EventController::class, 'checkout'])->name('checkout');
 
 Route::get('/my-ticket', [EventController::class, 'ticket'])->name('ticket');
 

@@ -75,8 +75,9 @@
             @foreach($events as $event)
                 <div class="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden">
                     <div class="relative overflow-hidden aspect-[3/4]">
-                        <img src="https://placehold.co/200x600"
-                            alt="{{ $event->title }}"
+                        <img src="{{ ($event->poster_path && \Illuminate\Support\Facades\Storage::disk('public')->exists($event->poster_path))
+                            ? asset('storage/' . $event->poster_path)
+                            : 'https://placehold.co/200x600' }}" alt="{{ $event->title }}"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
 
                         <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur rounded-lg text-xs font-bold uppercase text-indigo-600">
@@ -91,7 +92,7 @@
 
                         <div class="flex items-center gap-2 text-slate-500 text-sm mb-4">
                             <i class="fa-solid fa-clock w-4 h-4 text-center"></i>
-                            <span>{{ $event->date }}</span>
+                            <span>{{ \Carbon\Carbon::parse($event->date)->format('d M Y, H:i') }}</span>
                         </div>
 
                         <div class="flex justify-between items-center pt-4 border-t">

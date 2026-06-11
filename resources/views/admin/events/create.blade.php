@@ -5,7 +5,7 @@
 Tambah Event</h2>
 
     <form action="{{ route('admin.events.store') }}"
-method="POST" class="bg-white p-6 rounded-lg shadow-sm border
+method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-sm border
 border-gray-200 mt-2">
 @csrf
 
@@ -35,7 +35,7 @@ $category->name }}</option>
 700">Deskripsi Pendek</label>
             <textarea name="description" class="w-full border
 border-gray-300 p-2.5 rounded focus:ring focus:ring-indigo-
-200" rows="3" required></textarea>
+200" rows="3"></textarea>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-
@@ -61,6 +61,10 @@ class="w-full border border-gray-300 p-2.5 rounded" required>
 700">Lokasi / Gedung</label>
             <input type="text" name="location" class="w-full
 border border-gray-300 p-2.5 rounded" required>
+        </div>
+        <div class="mb-6">
+            <label class="block mb-2 font-medium text-gray-700">Poster Event (Opsional)</label>
+            <input type="file" name="poster" accept="image/*" class="w-full border border-gray-300 p-2.5 rounded">
         </div>
         <div class="flex justify-end border-t pt-4">
             <button type="submit" class="bg-indigo-600 textwhite px-8 py-2.5 rounded font-semibold hover:bg-indigo-700
