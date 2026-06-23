@@ -20,13 +20,12 @@ use App\Http\Controllers\Admin\PartnerController;
 
 // ================= USER AREA =================
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
-
 Route::get('/checkout/{event}', [EventController::class, 'checkout'])->name('checkout');
-
 Route::get('/my-ticket', [EventController::class, 'ticket'])->name('ticket');
 
+Route::get('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
 
 // ================= ADMIN AREA =================
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -53,7 +52,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Transactions
         Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions');
-
+       
         // Categories
         Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
         Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');

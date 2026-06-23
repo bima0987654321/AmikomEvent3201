@@ -17,6 +17,16 @@ class Event extends Model
         'poster_path'
     ];
 
+    /**
+     * Mengubah tipe data kolom saat diakses oleh Eloquent
+     */
+    protected $casts = [
+        'date' => 'datetime',
+    ];
+
+    /**
+     * Hubungan Relasi ke Model Category
+     */
     public function category()
     {
         return $this->belongsTo(Category::class);
