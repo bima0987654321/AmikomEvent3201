@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\CheckoutController;
 
 // Admin Controller
 use App\Http\Controllers\Admin\AuthController;
@@ -26,6 +27,10 @@ Route::get('/my-ticket', [EventController::class, 'ticket'])->name('ticket');
 
 Route::get('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
+
+Route::get('/payment/{order_id}',[\App\Http\Controllers\CheckoutController::class, 'payment'])->name('checkout.payment');
+
+Route::get('/success/{order_id}', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('checkout.success');
 
 // ================= ADMIN AREA =================
 Route::prefix('admin')->name('admin.')->group(function () {
