@@ -32,6 +32,8 @@ Route::get('/payment/{order_id}',[\App\Http\Controllers\CheckoutController::clas
 
 Route::get('/success/{order_id}', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('checkout.success');
 
+Route::post('/midtrans/callback',[\App\Http\Controllers\MidtransWebhookController::class, 'handle']);
+
 // ================= ADMIN AREA =================
 Route::prefix('admin')->name('admin.')->group(function () {
 
