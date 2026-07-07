@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\MidtransWebhookController;
 
 // Admin Controller
 use App\Http\Controllers\Admin\AuthController;
